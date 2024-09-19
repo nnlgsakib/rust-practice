@@ -3,7 +3,9 @@
 
 // <-- STARTING  OF DAY ONE -->
 
+use std::arch::x86_64::_mm256_div_ps;
 use std::collections::HashMap;
+use std::path::Prefix::DeviceNS;
 
 // day1
 // T2 : HELLO WORLD
@@ -280,7 +282,7 @@ fn STR() {
 }
 
 // T3: hashmap
-fn main() {
+fn hhashmap() {
     let mut studet_info = HashMap::new();
     // storing some values in student info
     studet_info.insert(String::from("sakib"),String::from("B"));
@@ -299,3 +301,49 @@ fn main() {
     }
 }
 // <-- ENDING OF DAY  6 -->
+
+// <-- STARTING OF DAY 7 -->
+
+// Day 7: Error Handling
+
+// T1: Using Result and Option
+
+// using result
+// Function to divide numbers and return a Result
+fn divide_numbers(x: f32, y: f32) -> Result<f32, String> {
+    if y == 0.0 {
+        Err(String::from("There is an error / y cannot be 0"))
+    } else {
+        Ok(x / y)
+    }
+}
+
+// Function to get user age using Option
+fn get_user_age(a: Option<i32>) -> Option<i32> {
+    match a {
+        Some(age) => Some(age),
+        None => None,
+    }
+}
+
+fn main() {
+    // Testing divide_numbers
+    match divide_numbers(10.0, 0.0) {
+        Ok(r) => println!("Result: {}", r),
+        Err(e) => println!("Error: {}", e),
+    }
+
+    match divide_numbers(100.0, 343.0) {
+        Ok(r) => println!("Result: {}", r),
+        Err(e) => println!("{}", e),
+    }
+
+    // Testing get_user_age
+    let age = Some(10);
+    let no_age: Option<i32> = None;
+
+    println!("User's age is {:?}", get_user_age(age));  // Some(10)
+    println!("User's age is {:?}", get_user_age(no_age));  // None
+}
+// <-- ENDING OF DAY  7 -->
+
