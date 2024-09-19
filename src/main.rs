@@ -3,6 +3,8 @@
 
 // <-- STARTING  OF DAY ONE -->
 
+use std::collections::HashMap;
+
 // day1
 // T2 : HELLO WORLD
 fn T2() {
@@ -267,7 +269,7 @@ fn vect() {
 
 //T 2: Strings
 
-fn main() {
+fn STR() {
     let mut st_r:String = String::from("Rust is fun ");
     st_r.push_str(" is fun");
     let ext:String = st_r+ &*"And I love to play with it ".to_string();
@@ -276,3 +278,24 @@ fn main() {
     println!("Slice: {}", slice);
 
 }
+
+// T3: hashmap
+fn main() {
+    let mut studet_info = HashMap::new();
+    // storing some values in student info
+    studet_info.insert(String::from("sakib"),String::from("B"));
+    studet_info.insert(String::from("mazid"),String::from("A-"));
+    studet_info.insert(String::from("nasif"),String::from("A+"));
+
+    // accesing a perticular value
+    let student  =  String::from("sakib");
+    match studet_info.get(&student) {
+        Some(g) => println!("{}'s grade is {}",student, g),
+        None => println!("studet not found"),
+    }
+    //itarating values using for loop
+    for (k,v) in studet_info {
+        println!("{}:{}",k,v)
+    }
+}
+// <-- ENDING OF DAY  6 -->
